@@ -1,7 +1,20 @@
+import { useContext } from "react";
+import { AppContext } from "./AppProvider";
+import SignIn from "./components/signIn.jsx/signIn";
+import Page from "./components/Page/Page";
 export default function App() {
+  const { inicied } = useContext(AppContext);
+
   return (
-    <h1 className="text-3xl red font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div>
+      {
+        !inicied ? 
+        (
+          <SignIn />
+        ) : (
+          <Page/>
+        )
+      }
+    </div>
+  );
 }
